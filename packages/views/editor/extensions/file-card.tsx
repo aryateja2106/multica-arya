@@ -55,7 +55,11 @@ function FileCardView({ node }: NodeViewProps) {
   const kind = filename
     ? getPreviewKind(attachment?.content_type ?? "", filename)
     : null;
-  const isMediaKind = kind === "pdf" || kind === "video" || kind === "audio";
+  const isMediaKind =
+    kind === "pdf" ||
+    kind === "image" ||
+    kind === "video" ||
+    kind === "audio";
   const canPreview = !!href && kind !== null && (!!attachment || isMediaKind);
 
   const openPreview = () => {

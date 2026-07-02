@@ -13,6 +13,14 @@ describe("getPreviewKind", () => {
     ["video/mp4", "clip.mp4", "video"],
     ["audio/mpeg", "note.mp3", "audio"],
 
+    // Images — content-type and extension paths. SVG is treated as an
+    // image so the preview renders the rasterized shape, not the markup.
+    ["image/png", "screenshot.png", "image"],
+    ["image/jpeg", "photo.jpg", "image"],
+    ["image/svg+xml", "smiley.svg", "image"],
+    ["application/octet-stream", "icon.webp", "image"],
+    ["application/octet-stream", "diagram.svg", "image"],
+
     // Markdown — both well-typed and sniffer-fallback paths
     ["text/markdown", "README", "markdown"],
     ["text/plain", "README.md", "markdown"],

@@ -1,4 +1,4 @@
-.PHONY: help makehelp dev server daemon cli multica build test migrate-up migrate-down sqlc seed clean setup start stop check worktree-env setup-main start-main stop-main check-main setup-worktree start-worktree stop-worktree check-worktree db-up db-down db-reset selfhost selfhost-build selfhost-stop
+.PHONY: help makehelp dev dev-detach dev-attach dev-logs dev-stop server daemon cli multica build test migrate-up migrate-down sqlc seed clean setup start stop check worktree-env setup-main start-main stop-main check-main setup-worktree start-worktree stop-worktree check-worktree db-up db-down db-reset selfhost selfhost-build selfhost-stop
 
 MAIN_ENV_FILE ?= .env
 WORKTREE_ENV_FILE ?= .env.worktree
@@ -257,6 +257,18 @@ check-worktree: ## Run the full verification pipeline for this worktree
 
 dev: ## Bootstrap this checkout end-to-end: create env if needed, ensure DB, migrate, start services
 	@bash scripts/dev.sh
+
+dev-detach: ## Boot backend (air) + desktop in a detached tmux session with per-process logs
+	@bash scripts/dev-detach.sh
+
+dev-attach: ## Attach to the running detached tmux session
+	@tmux attach -t $${MULTICA_DEV_SESSION:-multica-dev}
+
+dev-logs: ## Tail combined backend + desktop logs from the detached session
+	@tail -F .dev-logs/backend.log .dev-logs/desktop.log
+
+dev-stop: ## Stop the detached dev session and all its processes
+	@tmux kill-session -t $${MULTICA_DEV_SESSION:-multica-dev} 2>/dev/null && echo "✓ Stopped" || echo "No session running"
 
 server: ## Run only the Go server for the current checkout
 	$(REQUIRE_ENV)

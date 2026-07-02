@@ -12,11 +12,19 @@
 
 export type PreviewKind =
   | "pdf"
+  | "image"
   | "video"
   | "audio"
   | "markdown"
   | "html"
   | "text";
+
+// Image extensions previewable inline via <img>. SVG renders here too —
+// browsers parse it natively and we deliberately want the rendered shape,
+// not the source text, when an agent or user attaches a generated SVG.
+const IMAGE_EXTS = new Set<string>([
+  "png", "jpg", "jpeg", "gif", "webp", "bmp", "avif", "ico", "svg",
+]);
 
 const EXT_LANGUAGE_MAP: Record<string, string> = {
   // Markdown
@@ -161,6 +169,7 @@ export function getPreviewKind(
   const ext = extOf(filename);
 
   if (ct === "application/pdf" || ext === "pdf") return "pdf";
+  if (ct.startsWith("image/") || (ext && IMAGE_EXTS.has(ext))) return "image";
   if (ct.startsWith("video/") || (ext && VIDEO_EXTS.has(ext))) return "video";
   if (ct.startsWith("audio/") || (ext && AUDIO_EXTS.has(ext))) return "audio";
 

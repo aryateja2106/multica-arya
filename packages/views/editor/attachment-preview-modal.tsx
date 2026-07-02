@@ -77,7 +77,7 @@ export type PreviewSource =
 
 // PreviewKinds that can render from a URL-only source. Text-based kinds
 // (markdown / html / text) need the /content proxy which is ID-keyed.
-const URL_ONLY_KINDS = new Set<PreviewKind>(["pdf", "video", "audio"]);
+const URL_ONLY_KINDS = new Set<PreviewKind>(["pdf", "image", "video", "audio"]);
 
 // Normalized view used everywhere downstream of `useAttachmentPreview`.
 // `attachmentId === null` signals URL-only mode (download falls back to
@@ -316,6 +316,16 @@ function PreviewContent({
           className="h-full w-full bg-background"
           title={state.filename}
         />
+      );
+    case "image":
+      return (
+        <div className="flex h-full w-full items-center justify-center bg-black/40 p-4">
+          <img
+            src={state.mediaUrl}
+            alt={state.filename}
+            className="max-h-full max-w-full object-contain"
+          />
+        </div>
       );
     case "video":
       return (

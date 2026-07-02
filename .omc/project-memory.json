@@ -1,0 +1,305 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1779150819287,
+  "projectRoot": "/Users/aryateja/Desktop/Personal-Agent-Set-up/multica-arya",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "C/C++",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "Makefile"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "@playwright/test",
+        "version": "1.58.2",
+        "category": "testing"
+      }
+    ],
+    "packageManager": "pnpm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "pnpm build",
+    "testCommand": "pnpm test",
+    "lintCommand": "pnpm lint",
+    "devCommand": null,
+    "scripts": {
+      "dev:web": "turbo dev --filter=@multica/web",
+      "dev:docs": "turbo dev --filter=@multica/docs",
+      "dev:desktop": "turbo dev --filter=@multica/desktop",
+      "dev:desktop:staging": "turbo dev:staging --filter=@multica/desktop",
+      "build": "turbo build",
+      "typecheck": "turbo typecheck",
+      "test": "turbo test",
+      "lint": "turbo lint",
+      "clean": "turbo clean && rm -rf node_modules",
+      "ui:add": "cd packages/ui && npx shadcn@latest add",
+      "generate:reserved-slugs": "node scripts/generate-reserved-slugs.mjs"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": true,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs",
+      "scripts"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "Plans": {
+      "path": "Plans",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1779150819275,
+      "keyFiles": []
+    },
+    "apps": {
+      "path": "apps",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1779150819275,
+      "keyFiles": []
+    },
+    "docker": {
+      "path": "docker",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779150819277,
+      "keyFiles": [
+        "entrypoint.sh"
+      ]
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 7,
+      "lastAccessed": 1779150819278,
+      "keyFiles": [
+        "agent-quick-create-plan.md",
+        "analytics.md",
+        "codex-sandbox-troubleshooting.md",
+        "design.md",
+        "docs-outline.md"
+      ]
+    },
+    "e2e": {
+      "path": "e2e",
+      "purpose": null,
+      "fileCount": 9,
+      "lastAccessed": 1779150819278,
+      "keyFiles": [
+        "auth.spec.ts",
+        "chat-attachments.spec.ts",
+        "comments.spec.ts",
+        "env.ts",
+        "fixtures.ts"
+      ]
+    },
+    "packages": {
+      "path": "packages",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1779150819278,
+      "keyFiles": []
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 8,
+      "lastAccessed": 1779150819278,
+      "keyFiles": [
+        "check.sh",
+        "dev-detach.sh",
+        "dev.sh",
+        "ensure-postgres.sh",
+        "generate-reserved-slugs.mjs"
+      ]
+    },
+    "server": {
+      "path": "server",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1779150819278,
+      "keyFiles": [
+        "go.mod",
+        "go.sum",
+        "sqlc.yaml"
+      ]
+    },
+    "apps/docs": {
+      "path": "apps/docs",
+      "purpose": "Documentation",
+      "fileCount": 9,
+      "lastAccessed": 1779150819279,
+      "keyFiles": [
+        "middleware.ts",
+        "next-env.d.ts",
+        "next.config.mjs"
+      ]
+    },
+    "docs/assets": {
+      "path": "docs/assets",
+      "purpose": "Static assets",
+      "fileCount": 4,
+      "lastAccessed": 1779150819279,
+      "keyFiles": [
+        "banner.jpg",
+        "hero-screenshot.png",
+        "logo-dark.svg"
+      ]
+    },
+    "packages/views": {
+      "path": "packages/views",
+      "purpose": "View templates",
+      "fileCount": 4,
+      "lastAccessed": 1779150819279,
+      "keyFiles": [
+        "eslint.config.mjs",
+        "package.json",
+        "tsconfig.json"
+      ]
+    },
+    "server/bin": {
+      "path": "server/bin",
+      "purpose": "Executable scripts",
+      "fileCount": 0,
+      "lastAccessed": 1779150819280,
+      "keyFiles": []
+    },
+    "server/data": {
+      "path": "server/data",
+      "purpose": "Data files",
+      "fileCount": 0,
+      "lastAccessed": 1779150819280,
+      "keyFiles": []
+    },
+    "server/migrations": {
+      "path": "server/migrations",
+      "purpose": "Database migrations",
+      "fileCount": 222,
+      "lastAccessed": 1779150819281,
+      "keyFiles": [
+        "001_init.down.sql",
+        "001_init.up.sql",
+        "002_agent_config.down.sql"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "packages/views/editor/utils/preview.ts",
+      "accessCount": 3,
+      "lastAccessed": 1778883377097,
+      "type": "file"
+    },
+    {
+      "path": "packages/views/editor/attachment-preview-modal.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1778883388604,
+      "type": "file"
+    },
+    {
+      "path": "Makefile",
+      "accessCount": 3,
+      "lastAccessed": 1778883947972,
+      "type": "file"
+    },
+    {
+      "path": "packages/views/editor/extensions/file-card.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1778883393844,
+      "type": "file"
+    },
+    {
+      "path": "packages/views/editor/readonly-content.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1778883398074,
+      "type": "file"
+    },
+    {
+      "path": "packages/views/editor/utils/preview.test.ts",
+      "accessCount": 2,
+      "lastAccessed": 1778883406690,
+      "type": "file"
+    },
+    {
+      "path": "docker-compose.selfhost.yml",
+      "accessCount": 2,
+      "lastAccessed": 1778894534440,
+      "type": "file"
+    },
+    {
+      "path": "packages/views/editor/use-download-attachment.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778883257380,
+      "type": "file"
+    },
+    {
+      "path": "packages/views/editor/extensions/image-view.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1778883259245,
+      "type": "file"
+    },
+    {
+      "path": "packages/views/editor/attachment-download-context.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1778883267754,
+      "type": "file"
+    },
+    {
+      "path": "server/internal/handler/file.go",
+      "accessCount": 1,
+      "lastAccessed": 1778883275156,
+      "type": "file"
+    },
+    {
+      "path": "packages/views/issues/components/comment-card.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1778883291573,
+      "type": "file"
+    },
+    {
+      "path": "apps/desktop/src/main/index.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778883318129,
+      "type": "file"
+    },
+    {
+      "path": "apps/desktop/src/main/external-url.ts",
+      "accessCount": 1,
+      "lastAccessed": 1778883322819,
+      "type": "file"
+    },
+    {
+      "path": "scripts/dev-detach.sh",
+      "accessCount": 1,
+      "lastAccessed": 1778883927097,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
